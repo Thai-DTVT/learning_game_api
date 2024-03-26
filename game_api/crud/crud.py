@@ -18,7 +18,7 @@ def get_score(level: int, limit: int = 5, session=Depends(Session)):
     scores = (  
         session.query(Score)
         .filter(Score.level == level)
-        .order_by(Score.score.desc())  # type: ignore
+        .order_by(Score.score.desc()) 
         .limit(limit)
         .all()
     )
