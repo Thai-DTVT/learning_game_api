@@ -11,9 +11,9 @@ def create_score(score: ScoreSchema, session=Session):
     session.refresh(db_score)
     return db_score
 
-def get_score(level: int, limit: int = 5, session=Depends(Session)):
-    if limit > 10: #kiem tra gioi han
-        limit = 10
+def get_score(level: int, limit: int = 30, session=Depends(Session)):
+    if limit > 30: #kiem tra gioi han
+        limit = 30
 #truy van csdl lay diem so theo muc do
     scores = (  
         session.query(Score)

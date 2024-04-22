@@ -29,6 +29,6 @@ async def create_score(score: ScoreSchema, session=Depends(get_db)):
 
 #lay diem so theo muc do
 @app.get("/score/", response_model=GetTopScoreByLevelResponse)
-async def get_score(level: int, limit: int = 5, session=Depends(get_db)):
+async def get_score(level: int, limit: int = 30, session=Depends(get_db)):
     return crud.get_score(level,limit,session)
 

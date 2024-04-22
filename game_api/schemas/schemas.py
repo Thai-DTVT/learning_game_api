@@ -1,12 +1,13 @@
-from pydantic import BaseModel # thu vien pydantic Python kiem tra va validate du lieu
+from pydantic import BaseModel
+from datetime import datetime,time
 
-
-class ScoreSchema(BaseModel): #cau truc du lieu can co 
+class ScoreSchema(BaseModel): 
     player: str
     score: int
     level: int
+    time_play: datetime = datetime.now()
+    time_finish: time = datetime.now().time()
+class GetTopScoreByLevelResponse(BaseModel): 
+    limit: int
+    scores: list[ScoreSchema] = []
 
-
-class GetTopScoreByLevelResponse(BaseModel): #lay diem so cao nhat voi muc do
-    limit: int #gioi han 
-    scores: list[ScoreSchema] = [] #tra ve [] neu khong co diem
