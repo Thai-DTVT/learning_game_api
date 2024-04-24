@@ -1,0 +1,11 @@
+version:  '3'
+services:
+  core_api:
+    build: .
+    container_name: "game_api"
+    ports:
+      - "8000:8080"
+    volumes:
+      - ./game_api/:/game_api
+    environment:
+      TZ: "Asia/Ho_Chi_Minh"
